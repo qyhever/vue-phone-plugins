@@ -12,7 +12,6 @@
     "dll": "webpack --config build/webpack.dll.config.js",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --fix --ext .js,.vue src",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "keywords": [

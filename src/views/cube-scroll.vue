@@ -73,7 +73,7 @@
       fetchData() {
         this.$loading.open()
         return axios({
-          url: 'http://qyhever.com/disc',
+          url: 'https://qyhever.com/disc',
           params: Object.assign({}, this.params)
         })
           .then(res => {

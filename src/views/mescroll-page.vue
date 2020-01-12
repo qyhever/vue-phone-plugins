@@ -31,7 +31,7 @@ export default {
   methods: {
     fetchData(paper) {
       return axios({
-        url: 'http://qyhever.com/disc',
+        url: 'https://qyhever.com/disc',
         params: Object.assign({}, paper, this.params)
       }).then(res => {
         return res.data.data
