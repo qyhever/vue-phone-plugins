@@ -35,7 +35,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'public',
     // if your application is not on root dir, you should update it `/xxx/`
-    assetsPublicPath: '/',
+    assetsPublicPath: '/vue-phone-plugins/',
     productionSourceMap: true,
     devtool: 'source-map',
     productionGzip: false,

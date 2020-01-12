@@ -11,7 +11,9 @@
     "build:prod": "cross-env MODE=prod node build/build.js",
     "dll": "webpack --config build/webpack.dll.config.js",
     "lint": "eslint --ext .js,.vue src",
-    "lint:fix": "eslint --fix --ext .js,.vue src"
+    "lint:fix": "eslint --fix --ext .js,.vue src",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [
     "webpack",
@@ -59,6 +61,7 @@
     "eslint-plugin-vue": "^6.0.1",
     "file-loader": "^3.0.1",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "gh-pages": "^2.2.0",
     "happypack": "^5.0.1",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.9.0",
