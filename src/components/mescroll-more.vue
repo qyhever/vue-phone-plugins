@@ -60,6 +60,11 @@
         this.createBackTop()
       })
     },
+    beforeDestroy() {
+      if (this.backTopDom) {
+        this.backTopDom.remove()
+      }
+    },
     methods: {
       mescrollInit(mescroll) {
         this.mescroll = mescroll

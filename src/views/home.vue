@@ -16,7 +16,12 @@
         navs: [
           // { label: 'mescroll', value: '/mescroll' },
           { label: 'mescroll-page', value: '/mescroll-page' },
-          { label: 'cube-scroll', value: '/cube-scroll' }
+          { label: 'cube-scroll', value: '/cube-scroll' },
+          { label: 'autofocus', value: '/autofocus' },
+          { label: 'bottom-input', value: '/bottom-input' },
+          { label: 'uploader', value: '/uploader' },
+          { label: 'inputmode', value: '/inputmode' },
+          { label: 'ait', value: '/ait' }
         ]
       }
     }

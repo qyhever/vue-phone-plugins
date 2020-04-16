@@ -24,7 +24,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
     "@babel/runtime": "^7.7.6",
-    "axios": "^0.19.0",
     "core-js": "^3.5.0",
     "cube-ui": "^1.12.34",
     "mescroll.js": "^1.4.1",

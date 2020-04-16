@@ -25,7 +25,10 @@ module.exports = {
         '//qiniu.qyhever.com/js/vue-router.js',
         '//qiniu.qyhever.com/js/vuex.js',
         '//qiniu.qyhever.com/js/echarts.js',
-        '//cdn.bootcss.com/axios/0.18.0/axios.js'
+        '//qiniu.qyhever.com/js/axios.js',
+        '//qiniu.qyhever.com/js/fastclick.js',
+        '//qiniu.qyhever.com/js/vconsole.min.js',
+        '//qiniu.qyhever.com/js/vue-lazyload.min.js'
       ]
     }
   },
@@ -47,12 +50,17 @@ module.exports = {
     // `npm run build --preview`
     preview: process.env.npm_config_preview || false,
     cdn: {
+      css: [
+        '//res.wx.qq.com/open/libs/weui/2.1.3/weui.min.css'
+      ],
       js: [
         '//qiniu.qyhever.com/js/vue.min.js',
         '//qiniu.qyhever.com/js/vue-router.min.js',
         '//qiniu.qyhever.com/js/vuex.min.js',
         '//qiniu.qyhever.com/js/echarts.min.js',
-        '//cdn.bootcss.com/axios/0.18.0/axios.min.js'
+        '//qiniu.qyhever.com/js/axios.min.js',
+        '//qiniu.qyhever.com/js/fastclick.min.js',
+        '//qiniu.qyhever.com/js/vue-lazyload.min.js'
       ]
     }
   }

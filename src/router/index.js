@@ -22,20 +22,6 @@ export default new Router({
       ]
     },
     {
-      path: '/mescroll',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'mescroll',
-          path: '',
-          meta: {
-            title: 'mescroll'
-          },
-          component: () => import( /* webpackChunkName: "mescroll" */ '@/views/mescroll')
-        }
-      ]
-    },
-    {
       path: '/mescroll-page',
       component: BasicLayout,
       children: [
@@ -60,6 +46,76 @@ export default new Router({
             title: 'cube-scroll'
           },
           component: () => import( /* webpackChunkName: "cube-scroll" */ '@/views/cube-scroll')
+        }
+      ]
+    },
+    {
+      path: '/autofocus',
+      component: BasicLayout,
+      children: [
+        {
+          name: 'autofocus',
+          path: '',
+          meta: {
+            title: 'autofocus'
+          },
+          component: () => import( /* webpackChunkName: "autofocus" */ '@/views/autofocus')
+        }
+      ]
+    },
+    {
+      path: '/bottom-input',
+      component: BasicLayout,
+      children: [
+        {
+          name: 'bottomInput',
+          path: '',
+          meta: {
+            title: 'bottom-input'
+          },
+          component: () => import( /* webpackChunkName: "bottom-input" */ '@/views/bottom-input')
+        }
+      ]
+    },
+    {
+      path: '/uploader',
+      component: BasicLayout,
+      children: [
+        {
+          name: 'uploader',
+          path: '',
+          meta: {
+            title: 'uploader'
+          },
+          component: () => import( /* webpackChunkName: "uploader" */ '@/views/uploader')
+        }
+      ]
+    },
+    {
+      path: '/inputmode',
+      component: BasicLayout,
+      children: [
+        {
+          name: 'inputmode',
+          path: '',
+          meta: {
+            title: 'inputmode'
+          },
+          component: () => import( /* webpackChunkName: "inputmode" */ '@/views/inputmode')
+        }
+      ]
+    },
+    {
+      path: '/ait',
+      component: BasicLayout,
+      children: [
+        {
+          name: 'ait',
+          path: '',
+          meta: {
+            title: 'ait'
+          },
+          component: () => import( /* webpackChunkName: "ait" */ '@/views/ait')
         }
       ]
     }

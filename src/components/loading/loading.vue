@@ -2,7 +2,7 @@
   <transition name="loading">
     <div id="loadingToast" v-show="visible">
       <div class="weui-mask_transparent" @touchmove.stop.prevent></div>
-      <div class="weui-toast">
+      <div class="weui-toast" @touchmove.stop.prevent>
         <i class="weui-loading weui-icon_toast"></i>
         <p class="weui-toast__content" v-show="text">{{text}}</p>
       </div>
@@ -32,6 +32,6 @@
     opacity: 0;
   }
   #loadingToast {
-    transition: opacity .2s linear;
+    transition: opacity .3s;
   }
 </style>

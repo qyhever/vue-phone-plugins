@@ -59,7 +59,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       templateParameters: Object.assign({
           PUBLIC_URL: config.build.assetsPublicPath + config.build.assetsSubDirectory
         },
-        config.dev.cdn
+        config.build.cdn
       )
     }),
     new MiniCssExtractPlugin({

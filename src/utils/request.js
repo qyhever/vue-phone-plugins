@@ -1,6 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
-import { Message } from 'element-ui'
+import { Toast } from 'vant'
 import router from '@/router'
 // import { getToken } from '@/utils/local'
 
@@ -57,36 +57,39 @@ const _request = (
     showErrorMsg = true,
     ...options
   } = {},
-  fn = () => { } // eslint-disable-line
+  fn = () => {} // eslint-disable-line
 ) => {
-  instance.interceptors.request.use(config => {
-    // const token = getToken()
-    if (token) {
-      config.headers.Authorization = token
-    }
-    return config
-  }, error => {
-    return Promise.reject(error)
-  })
+  // removePending(options) // 在请求开始前，对之前的请求做检查取消操作
+  // addPending(options)
+  // const token = getToken()
+  options.headers = options.headers || {}
+  // if (token) {
+  //   options.headers[] = token
+  // }
   return instance(options)
     .then(response => {
+      // removePending(response) // 在请求结束后，移除本次请求
       if (getResponseSchema) { // immediately return the axios Response Schema
         return response
       }
       const responseData = response.data || {}
-      if (responseData.resultCode === 1) { // success code
-        responseData.succeed = true
-      } else { // not success code
-        if (showWarningMsg) {
-          Message.closeAll()
-          Message.warning(responseData.resultMsg || '操作失败')
-        }
+      if (responseData.code === 1) { // success code
+        return responseData.data
       }
-      return responseData || {}
+      if (showWarningMsg) {
+        Toast(responseData.resultMsg || '操作失败')
+      }
+      const err = new Error(JSON.stringify(responseData, null, 2))
+      err.name = 'warning'
+      throw err
     })
     .catch(error => {
+      if (error.name === 'warning') {
+        throw error
+      }
       let msg = ''
       if (error.response) {
+        // removePending(error.response) // 在请求结束后，移除本次请求
         const status = error.response.status
         msg = codeMessage[status] || '操作失败'
         if (status === 401) {
@@ -105,8 +108,7 @@ const _request = (
         }
       }
       if (showErrorMsg && msg && !axios.isCancel(error)) {
-        Message.closeAll()
-        Message.warning(msg)
+        Toast(msg)
       }
       throw error
     })

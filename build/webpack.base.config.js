@@ -36,8 +36,10 @@ module.exports = {
     'vue': 'Vue',
     'vue-router': 'VueRouter',
     'vuex': 'Vuex',
-    'echarts': 'echarts'
-    // 'axios':'axios'
+    'echarts': 'echarts',
+    'axios':'axios',
+    'fastclick':'FastClick',
+    'vue-lazyload':'VueLazyload'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
