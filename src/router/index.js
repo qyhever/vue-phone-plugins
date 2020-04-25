@@ -118,6 +118,34 @@ export default new Router({
           component: () => import( /* webpackChunkName: "ait" */ '@/views/ait')
         }
       ]
+    },
+    {
+      path: '/multiple-select',
+      component: BasicLayout,
+      children: [
+        {
+          name: 'multiple-select',
+          path: '',
+          meta: {
+            title: 'multiple-select'
+          },
+          component: () => import( /* webpackChunkName: "multiple-select" */ '@/views/multiple-select')
+        }
+      ]
+    },
+    {
+      path: '/area-picker',
+      component: BasicLayout,
+      children: [
+        {
+          name: 'area-picker',
+          path: '',
+          meta: {
+            title: 'area-picker'
+          },
+          component: () => import( /* webpackChunkName: "area-picker" */ '@/views/area-picker')
+        }
+      ]
     }
   ]
 })

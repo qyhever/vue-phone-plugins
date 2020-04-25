@@ -21,7 +21,9 @@
           { label: 'bottom-input', value: '/bottom-input' },
           { label: 'uploader', value: '/uploader' },
           { label: 'inputmode', value: '/inputmode' },
-          { label: 'ait', value: '/ait' }
+          { label: 'ait', value: '/ait' },
+          { label: 'multiple-select', value: '/multiple-select' },
+          { label: 'area-picker', value: '/area-picker' }
         ]
       }
     }

@@ -4,10 +4,12 @@ import {
   Style,
   Button,
   Loading,
-  Scroll
+  Scroll,
+  CascadePicker
 } from 'cube-ui'
 
 Vue
   .use(Button)
   .use(Loading)
   .use(Scroll)
+  .use(CascadePicker)
