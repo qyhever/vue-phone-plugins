@@ -8,8 +8,8 @@ FastClick.attach(document.body)
 Vue.use(VueLazyload, {
   loading: require('@/assets/images/loading.gif')
 })
-import './mint'
 import './vant'
 import './cube'
-import './variable'
+import './constant'
+import './method'
 import './component'

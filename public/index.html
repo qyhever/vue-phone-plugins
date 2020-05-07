@@ -2,185 +2,143 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <link rel="shortcut icon" href="<%= PUBLIC_URL %>/favicon.ico"> -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/cube-ui/lib/cube.min.css"> -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="<%= BASE_URL%>tally.png" type="image/x-icon" />
+  <% for (var i in htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.css) { %>
+  <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="stylesheet">
+  <% } %>
   <title>vue-phone-plugins</title>
-  <% for (var i in css) { %>
-    <link rel="stylesheet" href="<%= css[i] %>">
-    <% } %>
+  <script>
+  ;
+  (function() {
+    var designWidth = 750
+    var timer = null
+    var docEl = document.documentElement
+
+    function setBodyFontSize() {
+      if (document.body) {
+        // document.body.style.fontSize = 14 + 'px';
+        // document.body.style.fontSize = '0.14rem'
+      } else {
+        document.addEventListener(
+          'DOMContentLoaded',
+          setBodyFontSize
+        )
+      }
+    }
+
+    setBodyFontSize()
+
+    function remInit() {
+      docEl.style.fontSize =
+        (docEl.clientWidth / designWidth) * 100 + 'px'
+    }
+
+    remInit()
+    window.addEventListener('resize', function() {
+      clearTimeout(timer) //防止执行两次
+      timer = setTimeout(remInit, 20)
+    })
+    window.addEventListener('pageshow', function(e) {
+      if (e.persisted) {
+        remInit()
+      }
+    })
+  })()
+
+  </script>
+  <script src="//at.alicdn.com/t/font_1564573_kamb0kwqb3o.js"></script>
 </head>
 
-<body>
+<body style="font-size: 14px">
+  <noscript>
+    <strong>We're sorry but e-admin doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
   <div id="app">
     <style>
-      .page-loading-warp {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 100px;
-        background-color: #fff;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .loader {
+      width: 2.5em;
+      height: 2.5em;
+      transform: rotate(165deg);
+      position: absolute;
+      top: calc(50% - 1.25em);
+      left: calc(50% - 1.25em);
+    }
+
+    .loader:before,
+    .loader:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 0.25em;
+      transform: translate(-50%, -50%);
+    }
+
+    .loader:before {
+      animation: before 2s infinite;
+    }
+
+    .loader:after {
+      animation: after 2s infinite;
+    }
+
+    @keyframes before {
+      0% {
+        width: 0.5em;
+        box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
       }
 
-      .spin {
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        color: rgba(0, 0, 0, 0.65);
-        font-size: 14px;
-        font-variant: tabular-nums;
-        line-height: 1.5;
-        list-style: none;
-        -webkit-font-feature-settings: 'tnum';
-        font-feature-settings: 'tnum';
-        position: absolute;
-        display: none;
-        color: #346fff;
-        text-align: center;
-        vertical-align: middle;
-        opacity: 0;
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-        transition: -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-        transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-        transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86),
-        -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+      35% {
+        width: 2.5em;
+        box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
       }
 
-      .spin-spinning {
-        position: static;
-        display: inline-block;
-        opacity: 1;
+      70% {
+        width: 0.5em;
+        box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
       }
 
-      .spin-dot {
-        position: relative;
-        display: inline-block;
-        font-size: 20px;
-        width: 20px;
-        height: 20px;
+      100% {
+        box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+      }
+    }
+
+    @keyframes after {
+      0% {
+        height: 0.5em;
+        box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
       }
 
-      .spin-dot-item {
-        position: absolute;
-        display: block;
-        width: 9px;
-        height: 9px;
-        background-color: #1890ff;
-        border-radius: 100%;
-        -webkit-transform: scale(0.75);
-        -ms-transform: scale(0.75);
-        transform: scale(0.75);
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        opacity: 0.3;
-        -webkit-animation: antSpinMove 1s infinite linear alternate;
-        animation: antSpinMove 1s infinite linear alternate;
+      35% {
+        height: 2.5em;
+        box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
       }
 
-      .spin-dot-item:nth-child(1) {
-        top: 0;
-        left: 0;
+      70% {
+        height: 0.5em;
+        box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
       }
 
-      .spin-dot-item:nth-child(2) {
-        top: 0;
-        right: 0;
-        -webkit-animation-delay: 0.4s;
-        animation-delay: 0.4s;
+      100% {
+        box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
       }
+    }
 
-      .spin-dot-item:nth-child(3) {
-        right: 0;
-        bottom: 0;
-        -webkit-animation-delay: 0.8s;
-        animation-delay: 0.8s;
-      }
-
-      .spin-dot-item:nth-child(4) {
-        bottom: 0;
-        left: 0;
-        -webkit-animation-delay: 1.2s;
-        animation-delay: 1.2s;
-      }
-
-      .spin-dot-spin {
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        -webkit-animation: antRotate 1.2s infinite linear;
-        animation: antRotate 1.2s infinite linear;
-      }
-
-      .spin-lg .spin-dot {
-        font-size: 32px;
-        width: 32px;
-        height: 32px;
-      }
-
-      .spin-lg .spin-dot i {
-        width: 14px;
-        height: 14px;
-      }
-
-      @media all and (-ms-high-contrast: none),
-      (-ms-high-contrast: active) {
-        .spin-blur {
-          background: #fff;
-          opacity: 0.5;
-        }
-      }
-
-      @-webkit-keyframes antSpinMove {
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes antSpinMove {
-        to {
-          opacity: 1;
-        }
-      }
-
-      @-webkit-keyframes antRotate {
-        to {
-          -webkit-transform: rotate(405deg);
-          transform: rotate(405deg);
-        }
-      }
-
-      @keyframes antRotate {
-        to {
-          -webkit-transform: rotate(405deg);
-          transform: rotate(405deg);
-        }
-      }
     </style>
-    <div class="page-loading-warp">
-      <div class="spin spin-lg spin-spinning">
-        <span class="spin-dot spin-dot-spin">
-          <i class="spin-dot-item"></i>
-          <i class="spin-dot-item"></i>
-          <i class="spin-dot-item"></i>
-          <i class="spin-dot-item"></i>
-        </span>
-      </div>
-    </div>
+    <div class="loader"></div>
   </div>
-  <% for (var i in js) { %>
-    <script src="<%= js[i] %>"></script>
-    <% } %>
-      <!-- <script src="<%= PUBLIC_URL %>/dll/vendor.dll.js"></script> -->
-      <!-- <script src=<%= PUBLIC_URL %>/test.js></script> -->
+  <div id="amap"></div>
+  <% for (var i in htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.js) { %>
+  <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+  <% } %>
+  <!-- <script src="https://webapi.amap.com/maps?v=1.4.15&key=6a169cffad64fb2322801c076ae7d3ec&plugin=AMap.CitySearch"></script> -->
+  <!-- built files will be auto injected -->
 </body>
 
 </html>

@@ -44,6 +44,6 @@ export default {
     line-height: 18px;
     border-radius: 15px;
     background-color: #F5F5F6;
-    .input-placeholder(@color-text-placeholder);
+    // .input-placeholder(@color-text-placeholder);
   }
 </style>

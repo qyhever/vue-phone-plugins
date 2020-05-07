@@ -8,14 +8,12 @@ npm run dev
 # or
 npm run start
 
-# build for test env
-npm run build:test
-
 # build from production env
 npm run build:prod
+# build from github pages
+npm run build:gh
 
 # fix the eslint errors
 npm run lint:fix
 
 ```
-

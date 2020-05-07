@@ -3,8 +3,9 @@ import Router from 'vue-router'
 import BasicLayout from '@/layouts/basic-layout'
 
 Vue.use(Router)
-
 export default new Router({
+  base: '/vue-phone-plugins/',
+  mode: process.env.VUE_APP_HASH ? 'hash' : 'history',
   routes: [
     {
       path: '/',

@@ -1,26 +1,32 @@
+// https://eslint.org/docs/user-guide/configuring
+
 module.exports = {
   root: true,
   parserOptions: {
     parser: 'babel-eslint',
     sourceType: 'module'
   },
-  globals: {
-    $: true,
-    process: true
-  },
   env: {
     browser: true,
-    node: true,
-    es6: true
+    es6: true,
+    node: true
   },
   extends: [
-    'plugin:vue/essential',
-    // 'plugin:vue/recommended',
-    'eslint:recommended'
+    'eslint:recommended',
+    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
+    'plugin:vue/essential'
   ],
+  // required to lint *.vue files
   plugins: [
     'vue'
   ],
+  globals: {
+    require: false,
+    AMap: false,
+    process: false
+  },
+  // add your custom rules here
   rules: {
     /**
      * 代码错误
@@ -46,6 +52,7 @@ module.exports = {
      * 风格指南
      */
     // 'array-bracket-spacing': ['error', 'always'], // 数组方括号内必须空格
+    'array-bracket-spacing': 0, // 数组方括号内必须空格
     'comma-dangle': 2, // 禁止末尾逗号
     'eol-last': 2, // 要求文件末尾存在空行
     // 对象冒号前禁止空格，冒号后必须空格
@@ -74,8 +81,6 @@ module.exports = {
     'object-shorthand': 2, // 要求使用对象方法名和属性名简写
     'prefer-arrow-callback': 2, // 要求回调函数使用箭头函数
     'prefer-const': 2, // 使用 const 声明那些声明后不再被修改的变量
-    'prefer-rest-params': 2, // 要求使用剩余参数而不是 arguments
-
-    'jsx-quotes': ['error', 'prefer-double'] // 强制 JSX 属性值使用双引号
+    'prefer-rest-params': 2 // 要求使用剩余参数而不是 arguments
   }
 }

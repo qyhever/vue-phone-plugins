@@ -4,7 +4,6 @@ import router from './router'
 import store from './store'
 
 import './plugins'
-// the styles must be after the element-ui
 import './assets/styles/index.less'
 // if (process.env.NODE_ENV === 'development') {
 //   new window.VConsole()
