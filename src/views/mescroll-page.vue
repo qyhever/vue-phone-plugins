@@ -9,8 +9,8 @@
         <template slot-scope="{list}">
           <div class="item" v-for="(item, index) in list" :key="index">
             <b>{{index+1}}</b>
-            <img class="avatar" :data-src="item.imgurl" src="http://www.mescroll.com/demo/res/img/loading2.gif" alt="avatar">
-            <p>{{item.dissname}}</p>
+            <img class="avatar" :data-src="item.thumbnail" src="http://www.mescroll.com/demo/res/img/loading2.gif" alt="avatar">
+            <p>{{item.title}}</p>
           </div>
         </template>
       </com-mescroll-more>
@@ -30,9 +30,14 @@ export default {
   },
   methods: {
     fetchData(paper) {
+      const { page, count } = paper
       return axios({
-        url: 'https://qyhever.com/disc',
-        params: Object.assign({}, paper, this.params)
+        // url: `https://gank.io/api/v2/data/category/Girl/type/Girl/page/${page}/count/${count}`
+        url: 'https://rabtman.com/api/v2/acgclub/category/moeimg/pictures',
+        params: {
+          offset: page,
+          limit: count
+        }
       }).then(res => {
         return res.data.data
       })

@@ -6,8 +6,8 @@
       <template slot-scope="{list}">
         <div class="item" v-for="(item, index) in list" :key="index">
           <b>{{index+1}}</b>
-          <img class="avatar" v-lazy="item.imgurl" alt="avatar">
-          <p>{{item.dissname}}</p>
+          <img class="avatar" v-lazy="item.thumbnail" alt="avatar">
+          <p>{{item.title}}</p>
         </div>
       </template>
     </com-cube-loadmore>
@@ -24,10 +24,11 @@
     methods: {
       fetchData({page, count}) {
         return axios({
-          url: 'https://qyhever.com/disc',
+          // url: `https://gank.io/api/v2/data/category/Girl/type/Girl/page/${page}/count/${count}`,
+          url: 'https://rabtman.com/api/v2/acgclub/category/moeimg/pictures',
           params: {
-            page,
-            count
+            offset: page,
+            limit: count
           }
         }).then(res => {
           return res.data.data

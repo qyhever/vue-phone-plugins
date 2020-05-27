@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import BasicLayout from '@/layouts/basic-layout'
+// import BasicLayout from '@/layouts/basic-layout'
 
 Vue.use(Router)
 export default new Router({
@@ -12,141 +12,85 @@ export default new Router({
       redirect: '/home'
     },
     {
+      name: 'home',
       path: '/home',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'home',
-          path: '',
-          component: () => import( /* webpackChunkName: "home" */ '@/views/home')
-        }
-      ]
+      component: () => import( /* webpackChunkName: "home" */ '@/views/home'),
+      meta: {
+        title: '首页',
+        leftArrowHidden: true
+      }
     },
     {
+      name: 'mescrollPage',
       path: '/mescroll-page',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'mescrollPage',
-          path: '',
-          meta: {
-            title: 'mescroll-page'
-          },
-          component: () => import( /* webpackChunkName: "mescroll-page" */ '@/views/mescroll-page')
-        }
-      ]
+      component: () => import( /* webpackChunkName: "mescroll-page" */ '@/views/mescroll-page'),
+      meta: {
+        title: 'mescroll-page'
+      }
     },
     {
+      name: 'cubeScroll',
       path: '/cube-scroll',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'cubeScroll',
-          path: '',
-          meta: {
-            title: 'cube-scroll'
-          },
-          component: () => import( /* webpackChunkName: "cube-scroll" */ '@/views/cube-scroll')
-        }
-      ]
+      component: () => import( /* webpackChunkName: "cube-scroll" */ '@/views/cube-scroll'),
+      meta: {
+        title: 'cube-scroll'
+      }
     },
     {
+      name: 'autofocus',
       path: '/autofocus',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'autofocus',
-          path: '',
-          meta: {
-            title: 'autofocus'
-          },
-          component: () => import( /* webpackChunkName: "autofocus" */ '@/views/autofocus')
-        }
-      ]
+      component: () => import( /* webpackChunkName: "autofocus" */ '@/views/autofocus'),
+      meta: {
+        title: 'autofocus'
+      }
     },
     {
+      name: 'bottomInput',
       path: '/bottom-input',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'bottomInput',
-          path: '',
-          meta: {
-            title: 'bottom-input'
-          },
-          component: () => import( /* webpackChunkName: "bottom-input" */ '@/views/bottom-input')
-        }
-      ]
+      component: () => import( /* webpackChunkName: "bottom-input" */ '@/views/bottom-input'),
+      meta: {
+        title: 'bottom-input'
+      }
     },
     {
+      name: 'uploader',
       path: '/uploader',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'uploader',
-          path: '',
-          meta: {
-            title: 'uploader'
-          },
-          component: () => import( /* webpackChunkName: "uploader" */ '@/views/uploader')
-        }
-      ]
+      component: () => import( /* webpackChunkName: "uploader" */ '@/views/uploader'),
+      meta: {
+        title: 'uploader'
+      }
     },
     {
+      name: 'inputmode',
       path: '/inputmode',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'inputmode',
-          path: '',
-          meta: {
-            title: 'inputmode'
-          },
-          component: () => import( /* webpackChunkName: "inputmode" */ '@/views/inputmode')
-        }
-      ]
+      component: () => import( /* webpackChunkName: "inputmode" */ '@/views/inputmode'),
+      meta: {
+        title: 'inputmode'
+      }
     },
     {
+      name: 'ait',
       path: '/ait',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'ait',
-          path: '',
-          meta: {
-            title: 'ait'
-          },
-          component: () => import( /* webpackChunkName: "ait" */ '@/views/ait')
-        }
-      ]
+      component: () => import( /* webpackChunkName: "ait" */ '@/views/ait'),
+      meta: {
+        title: 'ait'
+      }
     },
     {
+      name: 'multipleSelect',
       path: '/multiple-select',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'multiple-select',
-          path: '',
-          meta: {
-            title: 'multiple-select'
-          },
-          component: () => import( /* webpackChunkName: "multiple-select" */ '@/views/multiple-select')
-        }
-      ]
+      component: () => import( /* webpackChunkName: "multiple-select" */ '@/views/multiple-select'),
+      meta: {
+        title: 'multiple-select'
+      }
     },
     {
+      name: 'areaPicker',
       path: '/area-picker',
-      component: BasicLayout,
-      children: [
-        {
-          name: 'area-picker',
-          path: '',
-          meta: {
-            title: 'area-picker'
-          },
-          component: () => import( /* webpackChunkName: "area-picker" */ '@/views/area-picker')
-        }
-      ]
+      component: () => import( /* webpackChunkName: "area-picker" */ '@/views/area-picker'),
+      meta: {
+        title: 'area-picker'
+      }
     }
   ]
 })

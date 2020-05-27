@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <van-nav-bar
+      class="navbar"
       :title="$route.meta.title"
       left-text="返回"
       fixed
@@ -27,5 +28,10 @@
 <style lang="less" scoped>
   .container {
     padding-top: 46px;
+  }
+  .navbar {
+    &:after {
+      border-color: #ccc;
+    }
   }
 </style>
