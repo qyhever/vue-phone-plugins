@@ -16,8 +16,31 @@ export default new Router({
       path: '/home',
       component: () => import( /* webpackChunkName: "home" */ '@/views/home'),
       meta: {
-        title: '首页',
-        leftArrowHidden: true
+        title: '首页'
+      }
+    },
+    {
+      name: 'record',
+      path: '/record',
+      component: () => import( /* webpackChunkName: "record" */ '@/views/record'),
+      meta: {
+        title: '订单'
+      }
+    },
+    {
+      name: 'search',
+      path: '/search',
+      component: () => import( /* webpackChunkName: "search" */ '@/views/search'),
+      meta: {
+        title: '搜索'
+      }
+    },
+    {
+      name: 'my',
+      path: '/my',
+      component: () => import( /* webpackChunkName: "my" */ '@/views/my'),
+      meta: {
+        title: '我的'
       }
     },
     {

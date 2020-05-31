@@ -5,7 +5,8 @@
       :key="index"
       :title="item.label"
       :to="item.value"
-      is-link />
+      is-link
+    />
   </div>
 </template>
 

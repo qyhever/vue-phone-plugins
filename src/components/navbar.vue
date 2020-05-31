@@ -1,7 +1,7 @@
 <template>
   <van-nav-bar
     class="navbar"
-    :title="$route.meta.title"
+    :title="title"
     :left-arrow="leftArrowVisible"
     fixed
     @click-left="$router.back()"
@@ -13,6 +13,11 @@
 
 <script>
   export default {
+    data() {
+      return {
+        hideLeftArrowList: ['/home', '/record', '/search', '/my']
+      }
+    },
     computed: {
       title() {
         const { meta } = this.$route
@@ -22,11 +27,8 @@
         return 'title'
       },
       leftArrowVisible() {
-        const { meta } = this.$route
-        if (meta && meta.leftArrowHidden) {
-          return false
-        }
-        return true
+        const { path } = this.$route
+        return !this.hideLeftArrowList.includes(path)
       }
     }
   }
@@ -34,6 +36,7 @@
 
 <style lang="less" scoped>
   .navbar {
+    z-index: 999 !important;
     &:after {
       border-color: #ccc;
     }
