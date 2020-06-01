@@ -114,6 +114,14 @@ export default new Router({
       meta: {
         title: 'area-picker'
       }
+    },
+    {
+      name: 'swiper',
+      path: '/swiper',
+      component: () => import( /* webpackChunkName: "swiper" */ '@/views/swiper'),
+      meta: {
+        title: 'swiper'
+      }
     }
   ]
 })

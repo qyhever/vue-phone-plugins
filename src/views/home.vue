@@ -24,15 +24,10 @@
           { label: 'inputmode', value: '/inputmode' },
           { label: 'ait', value: '/ait' },
           { label: 'multiple-select', value: '/multiple-select' },
-          { label: 'area-picker', value: '/area-picker' }
+          { label: 'area-picker', value: '/area-picker' },
+          { label: 'swiper', value: '/swiper' }
         ]
       }
     }
   }
 </script>
-
-<style lang="less" scoped>
-  .home {
-    // padding-top: 46px;
-  }
-</style>
