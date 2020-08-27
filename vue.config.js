@@ -5,7 +5,9 @@ const isDev = process.env.NODE_ENV === 'development'
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
-const externals = {}
+const externals = {
+  // 'vue-router': 'VueRouter'
+}
 const cdn = {
   dev: {
     css: [
@@ -30,9 +32,8 @@ module.exports = {
       warnings: true,
       errors: true
     }
+    // https://cli.vuejs.org/config/#devserver-proxy
     // proxy: {
-    //   // change xxx-api/login => mock/login
-    //   // detail: https://cli.vuejs.org/config/#devserver-proxy
     // }
   },
   pluginOptions: {

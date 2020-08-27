@@ -159,15 +159,8 @@ body {
 }
 
 body {
-  /*移动端没有微软雅黑字体*/
-  font-family: -apple-system, Helvetica, Microsoft YaHei, sans-serif;
+  font-family: -apple-system, Helvetica, Helvetica Neue, Tahoma, Arial, PingFangSC-Regular, Hiragino Sans GB, Microsoft Yahei, sans-serif;
   -webkit-overflow-scrolling: touch;
-}
-
-.layout {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  min-width: 320px;
-  max-width: 640px;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }

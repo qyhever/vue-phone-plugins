@@ -78,8 +78,8 @@
     font-size: 20px;
   }
   .tabbar-item__title {
-    padding-top: 3px;
-    font-size: 14px;
+    padding-top: 4px;
+    font-size: 12px;
   }
   @keyframes zoom {
     0% {
