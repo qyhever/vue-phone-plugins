@@ -60,6 +60,14 @@ export default new Router({
       }
     },
     {
+      name: 'cubeScrollDetail',
+      path: '/cube-scroll-detail',
+      component: () => import( /* webpackChunkName: "cube-scroll-detail" */ '@/views/cube-scroll-detail'),
+      meta: {
+        title: 'cube-scroll-detail'
+      }
+    },
+    {
       name: 'autofocus',
       path: '/autofocus',
       component: () => import( /* webpackChunkName: "autofocus" */ '@/views/autofocus'),

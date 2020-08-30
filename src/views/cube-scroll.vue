@@ -1,42 +1,78 @@
 <template>
   <div class="scroll-wrapper">
-    <com-cube-loadmore
-      ref="scrollMore"
-      :fetch-data="fetchData">
-      <template slot-scope="{list}">
-        <div class="item" v-for="(item, index) in list" :key="index">
-          <b>{{index+1}}</b>
-          <img class="avatar" v-lazy="item.thumbnail" alt="avatar">
-          <p>{{item.title}}</p>
-        </div>
-      </template>
-    </com-cube-loadmore>
+    <cube-scroll
+      class="cube-scroll"
+      ref="scrollContainer"
+      :data="list"
+      :options="options"
+      :scrollEvents="['scroll']"
+      @pulling-down="onPullingDown"
+      @pulling-up="onPullingUp"
+      @scroll="onScroll"
+    >
+      <div class="item" v-for="(item, index) in list" :key="index" @click="onItemClick">
+        <b>{{index+1}}</b>
+        <img class="avatar" v-lazy="item.imgurl" alt="avatar">
+        <p>{{item.dissname}}</p>
+      </div>
+    </cube-scroll>
+    <transition name="van-fade">
+      <div v-show="backtopVisible" class="back-top" @click="onBacktop">
+        <img src="@/assets/images/back-top.png" alt="backtop">
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
-  export default {
-    name: 'cube-scroll-page',
-    data() {
-      return {}
+import request from '@/utils/request'
+import { cubeScroll } from '@/mixins'
+export default {
+  name: 'CubeScrollPage',
+  mixins: [cubeScroll],
+  data() {
+    return {}
+  },
+  beforeRouteEnter(to, from, next) {
+    if (from.path === '/home') {
+      next(vm => {
+        // 非详情页进入，返回顶部
+        if (vm.$refs.scrollContainer) {
+          vm.$refs.scrollContainer.scrollTo(0, 0, 0)
+        }
+      })
+    } else {
+      next()
+    }
+  },
+  methods: {
+    query() {
+      request({
+        url: 'https://qyhever.com/common/disc',
+        params: this.pager
+      }).then(data => {
+        const list = data.list || []
+        const total = data.total || 0
+        if (this.pager.page === 1) {
+          this.list = list
+        } else {
+          this.list = this.list.concat(list)
+        }
+        if (this.list.length === total) {
+          this.allLoaded = true
+          this.$refs.scrollContainer.forceUpdate(true, true)
+        }
+      })
     },
-    methods: {
-      fetchData({page, count}) {
-        return axios({
-          // url: `https://gank.io/api/v2/data/category/Girl/type/Girl/page/${page}/count/${count}`,
-          url: 'https://rabtman.com/api/v2/acgclub/category/moeimg/pictures',
-          params: {
-            offset: page,
-            limit: count
-          }
-        }).then(res => {
-          return res.data.data
-        })
-      }
+    onItemClick() {
+      this.$router.push({
+        path: '/cube-scroll-detail'
+      })
     }
   }
+}
 </script>
+
 <style lang="less" scoped>
   .scroll-wrapper {
     position: fixed;

@@ -1,7 +1,7 @@
 import { Base64 } from 'js-base64'
 
-const TOKEN = 'galaxy-tally-token'
-const USER = 'galaxy-tally-user'
+const TOKEN = 'token'
+const USER = 'user'
 
 export const setToken = token => {
   return localStorage.setItem(TOKEN, token)

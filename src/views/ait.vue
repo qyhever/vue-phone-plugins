@@ -40,29 +40,6 @@ export default {
         this.endIndex = 0
       }, 20)
     }
-    /* eslint-disable */
-    // onInput() {
-    //   const newVal = this.sendInfo.msg
-    //   // 删除到 @ 后面，直接选中 用户名，方便删除
-    //   // 光标当前位置
-    //   const currentPosition = this.$refs.box.selectionStart
-    //   const endIndex = newVal.indexOf(' ', currentPosition) + 1
-    //   const startIndex = newVal.lastIndexOf(' @', currentPosition)
-    //   // 光标在名字中间
-    //   if (endIndex > 0 && startIndex > 0) {
-    //     this.sendInfo.msg = this.sendInfo.msg.slice(0, startIndex) + this.sendInfo.msg.slice(endIndex)
-    //     this.$nextTick(() => {
-    //       this.$refs.box.setSelectionRange(startIndex, startIndex)
-    //     })
-    //   } else if (/\s@(\w)+/.test(newVal)) { // 光标在名字后面
-    //     const startPosition = newVal.lastIndexOf(' @', currentPosition)
-    //     this.$refs.box.setSelectionRange(startPosition, currentPosition)
-    //   } else if (/\s@(\w)+$/.test(newVal)) { // 光标在名字后面，名字在整个评论内容的最后
-    //     const endPosition = newVal.length
-    //     const startPosition = newVal.lastIndexOf(' @')
-    //     this.$refs.box.setSelectionRange(startPosition, endPosition)
-    //   }
-    // }
   }
 }
 </script>

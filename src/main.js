@@ -9,6 +9,10 @@ import './assets/styles/index.less'
 // if (process.env.NODE_ENV === 'development') {
 //   new window.VConsole()
 // }
+if (process.env.NODE_ENV !== 'development') {
+  console.log(navigator.userAgent)
+  console.log(`last delopy: %c${process.env.NOW}`, 'color: #67C23A')
+}
 document.body.addEventListener('ontouchmove', e => {
   e.preventDefault()
 }, {

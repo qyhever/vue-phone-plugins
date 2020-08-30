@@ -1,13 +1,13 @@
 const path = require('path')
+const dayjs = require('dayjs')
 const TransformModulesPlugin = require('webpack-transform-modules-plugin')
 const isDev = process.env.NODE_ENV === 'development'
+const now = dayjs().format('YYYY-MM-DD HH:mm:ss')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
-const externals = {
-  // 'vue-router': 'VueRouter'
-}
+const externals = {}
 const cdn = {
   dev: {
     css: [
@@ -32,8 +32,9 @@ module.exports = {
       warnings: true,
       errors: true
     }
-    // https://cli.vuejs.org/config/#devserver-proxy
     // proxy: {
+    //   // change xxx-api/login => mock/login
+    //   // detail: https://cli.vuejs.org/config/#devserver-proxy
     // }
   },
   pluginOptions: {
@@ -79,6 +80,12 @@ module.exports = {
 
       config.plugin('html').tap(args => {
         args[0].cdn = isDev? cdn.dev : cdn.build
+        return args
+      })
+
+      config.plugin('define').tap((args) => {
+        // DefinePlugin 设置值 必须 JSON 序列化 或者 使用 双引号 包起来
+        args[0]['process.env'].NOW = JSON.stringify(now)
         return args
       })
   },

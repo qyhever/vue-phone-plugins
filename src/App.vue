@@ -2,7 +2,9 @@
   <div id="app">
     <navbar v-if="navbarVisible"/>
     <div class="page-wrapper" :class="{top: navbarVisible, bottom: tabbarVisible}">
-      <router-view/>
+      <keep-alive :include="['CubeScrollPage']">
+        <router-view/>
+      </keep-alive>
     </div>
     <tabbar v-if="tabbarVisible"/>
   </div>
@@ -12,7 +14,7 @@
 import Navbar from '@/components/navbar'
 import Tabbar from '@/components/tabbar'
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Navbar,
     Tabbar
