@@ -4,12 +4,12 @@ import { getToken } from '@/utils/local'
 import { Dialog } from 'vant'
 import Loading from '@/components/loading'
 
-// 根据 REACT_APP_MODE 来切换接口跟路径
+// 根据 VUE_APP_MODE 来切换接口跟路径
 const baseURL = {
   dev: '',
   test: '',
   prod: ''
-}[process.env.REACT_APP_MODE]
+}[process.env.VUE_APP_MODE]
 
 const codeMessage = {
   400: '请求错误',

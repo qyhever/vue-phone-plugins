@@ -2,7 +2,7 @@
   <div class="wrapper">
     <!-- <cube-button @click="handleSearch">设置searchKey重新查询</cube-button> -->
     <div class="scroll-wrapper">
-      <com-mescroll-more
+      <ComMescrollMore
         ref="scrollMore"
         :fetch-data="fetchData"
         :params="params">
@@ -13,7 +13,7 @@
             <p>{{item.title}}</p>
           </div>
         </template>
-      </com-mescroll-more>
+      </ComMescrollMore>
     </div>
   </div>
 </template>

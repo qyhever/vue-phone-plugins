@@ -6,7 +6,7 @@
       :key="index"
     >
       <router-link class="tabbar-item__link" :to="{name: item.value}">
-        <com-svg-icon class="tabbar-item__icon" :name="item.value"/>
+        <ComSvgIcon class="tabbar-item__icon" :name="item.value"/>
         <span class="tabbar-item__title">{{item.title}}</span>
       </router-link>
     </li>
