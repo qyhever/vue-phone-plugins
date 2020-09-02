@@ -4,7 +4,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 export default new Router({
-  base: process.envBASE_URL,
+  base: process.env.BASE_URL,
   mode: process.env.VUE_APP_HASH ? 'hash' : 'history',
   routes: [
     {

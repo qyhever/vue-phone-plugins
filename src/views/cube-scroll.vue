@@ -17,7 +17,7 @@
       </div>
     </cube-scroll>
     <transition name="van-fade">
-      <div v-show="backtopVisible" class="back-top" @click="onBacktop">
+      <div v-show="backtopVisible" class="backtop" @click="onBacktop">
         <img src="@/assets/images/back-top.png" alt="backtop">
       </div>
     </transition>

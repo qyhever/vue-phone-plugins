@@ -5,6 +5,7 @@
       <img class="avatar" :data-src="item.imgurl" src="http://www.mescroll.com/demo/res/img/loading2.gif" alt="avatar">
       <p>{{item.dissname}}</p>
     </div>
+    <ComBacktop></ComBacktop>
     <transition name="van-slide-right">
       <div class="detail" v-show="visible" @click="visible = false"></div>
     </transition>
