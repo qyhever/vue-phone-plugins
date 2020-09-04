@@ -130,6 +130,22 @@ export default new Router({
       meta: {
         title: 'swiper'
       }
+    },
+    {
+      name: 'charts',
+      path: '/charts',
+      component: () => import( /* webpackChunkName: "charts" */ '@/views/charts'),
+      meta: {
+        title: 'charts'
+      }
+    },
+    {
+      name: 'f2chart',
+      path: '/f2chart',
+      component: () => import( /* webpackChunkName: "f2chart" */ '@/views/f2chart'),
+      meta: {
+        title: 'f2chart'
+      }
     }
   ]
 })

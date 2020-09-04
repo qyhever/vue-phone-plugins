@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <ComPage>
     <cube-button @click="showAddressPicker">Address Picker</cube-button>
     <span>{{areaString}}</span>
-  </div>
+  </ComPage>
 </template>
 
 <script>

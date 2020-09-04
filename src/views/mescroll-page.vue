@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <ComPage>
     <div class="item" v-for="(item, index) in list" :key="index" @click="onItemClick">
       <b>{{index+1}}</b>
       <img class="avatar" :data-src="item.imgurl" src="http://www.mescroll.com/demo/res/img/loading2.gif" alt="avatar">
@@ -9,7 +9,7 @@
     <transition name="van-slide-right">
       <div class="detail" v-show="visible" @click="visible = false"></div>
     </transition>
-  </div>
+  </ComPage>
 </template>
 
 <script>

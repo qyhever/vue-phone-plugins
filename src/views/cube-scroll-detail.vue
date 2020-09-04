@@ -1,7 +1,7 @@
 <template>
-  <div class="detail">
+  <ComPage>
     detail
-  </div>
+  </ComPage>
 </template>
 
 <script>
@@ -9,9 +9,3 @@ export default {
   name: 'CubeScrollDetail'
 }
 </script>
-
-<style lang="less" scoped>
-  .detail {
-    width: 100%;
-  }
-</style>

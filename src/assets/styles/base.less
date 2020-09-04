@@ -42,23 +42,14 @@ nav,
 section {
   padding: 0;
   margin: 0;
-  /*设置宽度以边框开始计算*/
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
   box-sizing: border-box;
-  /* 去除元素被触摸时产生的半透明灰色背景（去除高亮） */
   -webkit-tap-highlight-color: transparent;
 }
 
 html {
   /* 旋转屏幕时禁止调整字体大小 */
-  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  /*禁止 iOS 弹出各种操作窗口，禁止ios&android长按时下载图片*/
-  -webkit-touch-callout: none;
 }
 
 ul,
@@ -92,7 +83,7 @@ input::-webkit-input-speech-button {
   display: none;
 }
 
-/* 禁用长按页面时的弹出菜单 */
+/* 禁用 iOS 长按页面时的弹出菜单 */
 img,
 a {
   -webkit-touch-callout: none;

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <ComPage tabbarVisible :leftArrow="false">
     <van-cell
       v-for="(item, index) in navs"
       :key="index"
@@ -7,7 +7,7 @@
       :to="item.value"
       is-link
     />
-  </div>
+  </ComPage>
 </template>
 
 <script>
@@ -25,7 +25,9 @@
           { label: 'ait', value: '/ait' },
           { label: 'multiple-select', value: '/multiple-select' },
           { label: 'area-picker', value: '/area-picker' },
-          { label: 'swiper', value: '/swiper' }
+          { label: 'swiper', value: '/swiper' },
+          { label: 'charts', value: '/charts' },
+          { label: 'f2chart', value: '/f2chart' }
         ]
       }
     }

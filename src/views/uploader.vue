@@ -1,7 +1,7 @@
 <template>
-  <div class="wrapper">
+  <ComPage>
     <van-uploader v-model="photos" :after-read="afterRead" />
-  </div>
+  </ComPage>
 </template>
 
 <script>
@@ -26,15 +26,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
-.wrapper {
-  position: fixed;
-  top: 46px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 15px;
-  background-color: #fff;
-}
-</style>

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <ComPage>
     <input ref="txt" type="text" v-model="value" placeholder="请输入" @input="onInput">
-  </div>
+  </ComPage>
 </template>
 
 <script>

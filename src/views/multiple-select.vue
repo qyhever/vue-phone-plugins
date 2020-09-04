@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<ComPage>
 		<ul>
 			<li
 				class="item"
@@ -11,7 +11,7 @@
 				{{item.name}}
 			</li>
 		</ul>
-	</div>
+	</ComPage>
 </template>
 
 <script>
@@ -38,6 +38,9 @@ export default {
 		},
 		activeCls(index) {
 			return this.selectKeys.some(v => v === index) ? 'active' : ''
+		},
+		onBack() {
+			console.log('back')
 		}
 	}
 }

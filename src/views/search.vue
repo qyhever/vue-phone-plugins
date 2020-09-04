@@ -1,5 +1,7 @@
 <template>
-  <div>search</div>
+  <ComPage tabbarVisible :leftArrow="false">
+    search
+  </ComPage>
 </template>
 
 <script>

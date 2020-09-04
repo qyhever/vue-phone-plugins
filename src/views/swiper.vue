@@ -1,15 +1,17 @@
 <template>
-  <div class="wrapper">
-    <swiper ref="mySwiper" :options="swiperOptions">
-      <swiper-slide
-        v-for="(item, index) in 5"
-        :key="index"
-      >
-        <img :src="require(`@/assets/images/carousel/${index + 1}.jpg`)" width="100%">
-      </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
-    </swiper>
-  </div>
+  <ComPage>
+    <div class="wrapper">
+      <swiper ref="mySwiper" :options="swiperOptions">
+        <swiper-slide
+          v-for="(item, index) in 5"
+          :key="index"
+        >
+          <img :src="require(`@/assets/images/carousel/${index + 1}.jpg`)" width="100%">
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
+  </ComPage>
 </template>
 
 <script>

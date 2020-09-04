@@ -24,22 +24,6 @@
           { value: 'my', title: '我的' }
         ]
       }
-    },
-    computed: {
-      title() {
-        const { meta } = this.$route
-        if (meta && meta.title) {
-          return meta.title
-        }
-        return 'title'
-      },
-      leftArrowVisible() {
-        const { meta } = this.$route
-        if (meta && meta.leftArrowHidden) {
-          return false
-        }
-        return true
-      }
     }
   }
 </script>

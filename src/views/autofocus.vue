@@ -1,8 +1,8 @@
 <template>
-  <div class="page">
+  <ComPage>
     <input type="text" class="txt" placeholder="请输入关键字" ref="txt">
     <cube-button ref="btn" @click="handleFocus" v-trigger>获取焦点</cube-button>
-  </div>
+  </ComPage>
 </template>
 
 <script>
@@ -26,14 +26,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .page {
-    position: fixed;
-    top: 46px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fff;
-  }
   .txt {
     display: block;
     width: 80%;

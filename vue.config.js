@@ -25,6 +25,7 @@ const cdn = {
 module.exports = {
   publicPath: '/vue-phone-plugins/',
   outputDir: 'dist',
+  assetsDir: 'static',
   devServer: {
     port: 2020,
     host: '0.0.0.0',

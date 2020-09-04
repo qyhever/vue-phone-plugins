@@ -1,27 +1,29 @@
 <template>
-  <div class="scroll-wrapper">
-    <cube-scroll
-      class="cube-scroll"
-      ref="scrollContainer"
-      :data="list"
-      :options="options"
-      :scrollEvents="['scroll']"
-      @pulling-down="onPullingDown"
-      @pulling-up="onPullingUp"
-      @scroll="onScroll"
-    >
-      <div class="item" v-for="(item, index) in list" :key="index" @click="onItemClick">
-        <b>{{index+1}}</b>
-        <img class="avatar" v-lazy="item.imgurl" alt="avatar">
-        <p>{{item.dissname}}</p>
-      </div>
-    </cube-scroll>
-    <transition name="van-fade">
-      <div v-show="backtopVisible" class="backtop" @click="onBacktop">
-        <img src="@/assets/images/back-top.png" alt="backtop">
-      </div>
-    </transition>
-  </div>
+  <ComPage>
+    <div class="scroll-wrapper">
+      <cube-scroll
+        class="cube-scroll"
+        ref="scrollContainer"
+        :data="list"
+        :options="options"
+        :scrollEvents="['scroll']"
+        @pulling-down="onPullingDown"
+        @pulling-up="onPullingUp"
+        @scroll="onScroll"
+      >
+        <div class="item" v-for="(item, index) in list" :key="index" @click="onItemClick">
+          <b>{{index+1}}</b>
+          <img class="avatar" v-lazy="item.imgurl" alt="avatar">
+          <p>{{item.dissname}}</p>
+        </div>
+      </cube-scroll>
+      <transition name="van-fade">
+        <div v-show="backtopVisible" class="backtop" @click="onBacktop">
+          <img src="@/assets/images/back-top.png" alt="backtop">
+        </div>
+      </transition>
+    </div>
+  </ComPage>
 </template>
 
 <script>

@@ -1,39 +1,11 @@
 <template>
-  <div id="app">
-    <navbar v-if="navbarVisible"/>
-    <div class="page-wrapper" :class="{top: navbarVisible, bottom: tabbarVisible}">
-      <keep-alive :include="['CubeScrollPage']">
-        <router-view/>
-      </keep-alive>
-    </div>
-    <tabbar v-if="tabbarVisible"/>
-  </div>
+  <keep-alive :include="['CubeScrollPage']">
+    <router-view/>
+  </keep-alive>
 </template>
 
 <script>
-import Navbar from '@/components/navbar'
-import Tabbar from '@/components/tabbar'
 export default {
-  name: 'App',
-  components: {
-    Navbar,
-    Tabbar
-  },
-  data() {
-    return {
-      hideNavbarList: [],
-      showTabbarList: ['/home', '/record', '/search', '/my']
-    }
-  },
-  computed: {
-    navbarVisible() {
-      const { path } = this.$route
-      return !this.hideNavbarList.includes(path)
-    },
-    tabbarVisible() {
-      const { path } = this.$route
-      return this.showTabbarList.includes(path)
-    }
-  }
+  name: 'App'
 }
 </script>

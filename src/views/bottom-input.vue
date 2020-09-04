@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <ComPage>
     <div class="scroll">
       <div class="img-list">
         <img
@@ -20,7 +20,7 @@
       <input type='text' class='txt' placeholder='请输入...' @focus="handleFocus" @blur="handleBlur">
       <van-button class='submit' type='primary'>发送</van-button>
     </div>
-  </div>
+  </ComPage>
 </template>
 
 <script>

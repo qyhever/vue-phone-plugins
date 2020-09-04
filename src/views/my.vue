@@ -1,5 +1,7 @@
 <template>
-  <div>my</div>
+  <ComPage tabbarVisible :leftArrow="false">
+    my
+  </ComPage>
 </template>
 
 <script>
