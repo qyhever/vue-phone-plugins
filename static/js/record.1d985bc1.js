@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["record"],{5058:function(e,r,n){"use strict";n.r(r);var t=function(){var e=this,r=e.$createElement,n=e._self._c||r;return n("ComPage",{attrs:{tabbarVisible:"",leftArrow:!1}},[e._v("\n  record\n")])},a=[],l={},o=l,c=n("2877"),s=Object(c["a"])(o,t,a,!1,null,null,null);r["default"]=s.exports}}]);
+//# sourceMappingURL=record.1d985bc1.js.map

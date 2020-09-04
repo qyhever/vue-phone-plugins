@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["cube-scroll-detail"],{c903:function(e,t,n){},ecba:function(e,t,n){"use strict";var c=n("c903"),a=n.n(c);a.a},ffb3:function(e,t,n){"use strict";n.r(t);var c=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"detail"},[e._v("\n  detail\n")])},a=[],l={name:"CubeScrollDetail"},i=l,s=(n("ecba"),n("2877")),u=Object(s["a"])(i,c,a,!1,null,"4b5ee482",null);t["default"]=u.exports}}]);
-//# sourceMappingURL=cube-scroll-detail.f7c48b02.js.map
