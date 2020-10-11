@@ -15,7 +15,7 @@
     data() {
       return {
         navs: [
-          // { label: 'mescroll', value: '/mescroll' },
+          { label: 'native-scroll', value: '/native-scroll' },
           { label: 'mescroll-page', value: '/mescroll-page' },
           { label: 'cube-scroll', value: '/cube-scroll' },
           { label: 'autofocus', value: '/autofocus' },

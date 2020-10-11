@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import BasicLayout from '@/layouts/basic-layout'
 
 Vue.use(Router)
 export default new Router({
@@ -145,6 +144,14 @@ export default new Router({
       component: () => import( /* webpackChunkName: "f2chart" */ '@/views/f2chart'),
       meta: {
         title: 'f2chart'
+      }
+    },
+    {
+      name: 'nativeScroll',
+      path: '/native-scroll',
+      component: () => import( /* webpackChunkName: "native-scroll" */ '@/views/native-scroll'),
+      meta: {
+        title: 'native-scroll'
       }
     }
   ]
