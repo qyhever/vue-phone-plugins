@@ -7,11 +7,16 @@
       :to="item.value"
       is-link
     />
+    <!-- <div v-for="(item, index) in 200" :key="index">{{item}}</div> -->
   </ComPage>
 </template>
 
 <script>
+  import ComPage from '@/components/page'
   export default {
+    components: {
+      ComPage
+    },
     data() {
       return {
         navs: [
@@ -19,6 +24,8 @@
           { label: 'mescroll-page', value: '/mescroll-page' },
           { label: 'cube-scroll', value: '/cube-scroll' },
           { label: 'autofocus', value: '/autofocus' },
+          { label: 'system', value: '/system' },
+          { label: 'forbid-long-press', value: '/forbid-long-press' },
           { label: 'bottom-input', value: '/bottom-input' },
           { label: 'uploader', value: '/uploader' },
           { label: 'inputmode', value: '/inputmode' },

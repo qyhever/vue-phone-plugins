@@ -1,73 +1,29 @@
-/* eslint-disable no-useless-escape */
-
+/* eslint-disable */
+export const RULE = {
+  mobile: /^(0|86|17951)?(1[358][0-9]|14[579]|166|17[0135678])[0-9]{8}$/,
+  zh: /^[\u4E00-\u9FA5]+$/,
+  password: /^(\w|\?=\.\*\[!@#\$%\^&\(\)\]){6,18}$/,
+  integer: /^[1-9][0-9]*$/,
+  // 两位小数
+  numberTwoDecimal: /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/,
+  // 图形验证码
+  imageVerifyCode: /^(\w|\d){4}$/,
+  // 手机验证码
+  phoneVerifyCode: /^\d{6}$/,
+  email: /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/,
+  emoji: /[^\u0020-\u007E\u00A0-\u00BE\u2E80-\uA4CF\uF900-\uFAFF\uFE30-\uFE4F\uFF00-\uFFEF\u0080-\u009F\u2000-\u201f\u2026\u2022\u20ac\r\n]/,
+  // 样例： 匹配 中文、表情、全角字符
+  example: /[\u4E00-\u9FA5]|[^\x00-\xff]|[^\u0020-\u007E\u00A0-\u00BE\u2E80-\uA4CF\uF900-\uFAFF\uFE30-\uFE4F\uFF00-\uFFEF\u0080-\u009F\u2000-\u201f\u2026\u2022\u20ac\r\n]/
+}
+/**
+ * 验证字符串
+ * @param {String} value 源字符串
+ * @param {String} type 验证类型
+ * @return {Boolean} 验证结果
+ */
 export function validator(value, type) {
-  const rules = {
-    mobile(str) {
-      return /^(0|86|17951)?(1[358][0-9]|14[579]|166|17[0135678])[0-9]{8}$/.test(str)
-    },
-    zh(str) {
-      return /^[\u4E00-\u9FA5]+$/.test(str)
-    },
-    password(str) {
-      return /^(\w|\?\=\.\*\[!@#\$%\^&\(\)\]){6,18}$/.test(str)
-    },
-    // 两位小数
-    numberTwoDecimal(str) {
-      return /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/.test(str)
-    }
+  if (!RULE[type]) {
+    throw new Error('Does not support the current type')
   }
-  return rules[type] ? rules[type](value) : false
-}
-
-/**
- * @param {string} path
- * @returns {Boolean}
- */
-export function isExternal(path) {
-  return /^(https?:|mailto:|tel:)/.test(path)
-}
-
-/**
- * @param {string} url
- * @returns {Boolean}
- */
-export function validURL(url) {
-  const reg = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/
-  return reg.test(url)
-}
-
-/**
- * @param {string} str
- * @returns {Boolean}
- */
-export function validLowerCase(str) {
-  const reg = /^[a-z]+$/
-  return reg.test(str)
-}
-
-/**
- * @param {string} str
- * @returns {Boolean}
- */
-export function validUpperCase(str) {
-  const reg = /^[A-Z]+$/
-  return reg.test(str)
-}
-
-/**
- * @param {string} str
- * @returns {Boolean}
- */
-export function validAlphabets(str) {
-  const reg = /^[A-Za-z]+$/
-  return reg.test(str)
-}
-
-/**
- * @param {string} email
- * @returns {Boolean}
- */
-export function validEmail(email) {
-  const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  return reg.test(email)
+  return RULE[type].test(value)
 }

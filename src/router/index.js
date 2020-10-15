@@ -153,6 +153,22 @@ export default new Router({
       meta: {
         title: 'native-scroll'
       }
+    },
+    {
+      name: 'system',
+      path: '/system',
+      component: () => import( /* webpackChunkName: "system" */ '@/views/system'),
+      meta: {
+        title: 'system'
+      }
+    },
+    {
+      name: 'forbidLongPress',
+      path: '/forbid-long-press',
+      component: () => import( /* webpackChunkName: "forbid-long-press" */ '@/views/forbid-long-press'),
+      meta: {
+        title: 'forbid-long-press'
+      }
     }
   ]
 })

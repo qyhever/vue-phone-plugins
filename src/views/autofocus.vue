@@ -1,18 +1,25 @@
 <template>
   <ComPage>
     <input type="text" class="txt" placeholder="请输入关键字" ref="txt">
-    <cube-button ref="btn" @click="handleFocus" v-trigger>获取焦点</cube-button>
+    <cube-button class="btn" ref="btn" @click="handleFocus" v-trigger>获取焦点</cube-button>
+    <cube-button @click="handleBlur">失去焦点</cube-button>
   </ComPage>
 </template>
 
 <script>
 export default {
   name: 'autofocus',
+  mounted() {
+    this.$refs.txt.focus()
+  },
   methods: {
     handleFocus() {
       this.$nextTick(() => {
         this.$refs.txt.focus()
       })
+    },
+    handleBlur() {
+      this.$refs.txt.blur()
     }
   },
   directives: {
@@ -37,5 +44,8 @@ export default {
     border-radius: 15px;
     background-color: #F5F5F6;
     // .input-placeholder(@color-text-placeholder);
+  }
+  .btn {
+    margin-bottom: 12px;
   }
 </style>

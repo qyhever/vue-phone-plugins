@@ -27,6 +27,7 @@
 
 <script>
 import Tabbar from '@/components/tabbar'
+// import { addClass, removeClass } from '@/utils/dom'
 export default {
   name: 'ComPage',
   components: {
@@ -64,6 +65,11 @@ export default {
       return 'title'
     }
   },
+  created() {
+    // const body = document.querySelector('body')
+    // this.navbarVisible ? addClass(body, 'top') : removeClass(body, 'top')
+    // this.tabbarVisible ? addClass(body, 'bottom') : removeClass(body, 'bottom')
+  },
   methods: {
     handleClickLeft() {
       if (this.onClickLeft) {
@@ -84,6 +90,10 @@ export default {
     }
     /deep/ .van-nav-bar__title {
       font-weight: 700;
+    }
+    /deep/ .van-nav-bar__left {
+      left: 0;
+      width: 46px;
     }
   }
 </style>

@@ -9,12 +9,6 @@
           :src="item"
           alt="image">
       </div>
-      <div class="p15">
-        <a href="tel:15927700473">打电话给我</a>
-      </div>
-      <div class="p15">
-        <a href="sms:内容">发短信</a>
-      </div>
     </div>
     <div class='footer'>
       <input type='text' class='txt' placeholder='请输入...' @focus="handleFocus" @blur="handleBlur">

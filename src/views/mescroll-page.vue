@@ -14,6 +14,7 @@
 
 <script>
 import MeScroll from 'mescroll.js'
+import 'mescroll.js/mescroll.min.css'
 import request from '@/utils/request'
 export default {
   data() {
