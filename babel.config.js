@@ -3,6 +3,15 @@ module.exports = {
     '@vue/app'
   ],
   plugins: [
+    [
+      'import',
+      {
+        libraryName: 'lodash',
+        libraryDirectory: '',
+        camel2DashComponentName: false
+      },
+      'lodash'
+    ],
     ['import', {
       libraryName: 'vant',
       libraryDirectory: 'es',

@@ -1,39 +1,72 @@
 <template>
   <ComPage>
-    <div v-for="(item, index) in 100" :key="index">{{item}}</div>
+    <div class="item" v-for="(item, index) in list" :key="index">
+      <b>{{index+1}}</b>
+      <img class="avatar" v-lazy="item.imgurl" alt="avatar">
+      <p>{{item.dissname}}</p>
+    </div>
+    <div v-show="list.length && isReachBottom" class="scroll-tip">拼命加载中...</div>
+    <div v-show="list.length && isTotalLoaded" class="scroll-tip">已经到底了</div>
+    <ComBacktop></ComBacktop>
   </ComPage>
 </template>
 
 <script>
+import { scroll } from '@/mixins'
+import request from '@/utils/request'
 export default {
+  mixins: [scroll],
+
   data() {
     return {
-      isReachBottom: false
+      list: []
     }
   },
-  mounted() {
-    const viewH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-    const totalH = document.documentElement.scrollHeight || document.body.scrollHeight
-    const reachBottomDistance = 100
-    window.addEventListener('scroll', () => {
-      const scrollT = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      const currentH = viewH + scrollT + reachBottomDistance
-      // 在 distance 区域以外区域滚动，重置 isReachBottom
-      if (currentH < totalH && this.isReachBottom) {
-        this.isReachBottom = false
-      }
-      if (this.isReachBottom) {
-        return
-      }
-      if (currentH >= totalH) {
-        this.isReachBottom = true
-        console.log('底部')
-      }
-    })
+
+  methods: {
+    query({ currentPage, pageSize }) {
+      request({
+        url: 'https://qyhever.com/common/disc',
+        params: {
+          page: currentPage,
+          size: pageSize
+        },
+        showLoading: false
+      }).then(res => {
+        const list = res.list
+        const total = res.total
+        if (currentPage === 1) {
+          this.list = list
+        } else {
+          this.list = this.list.concat(list)
+        }
+        this.endBySize(total)
+      })
+    }
   }
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+.item {
+  display: flex;
+  align-items: center;
+  padding: 25px 20px 0;
+  background-color: #fff;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+.item b {
+  margin-right: 12px;
+}
+.item p {
+  margin-left: 12px;
+}
+.scroll-tip {
+  padding: 15px;
+  text-align: center;
+  color: #999;
+}
 </style>
