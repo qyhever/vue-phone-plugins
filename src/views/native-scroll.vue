@@ -31,7 +31,7 @@ export default {
           page: currentPage,
           size: pageSize
         },
-        showLoading: false
+        showLoading: currentPage === 1
       }).then(res => {
         const list = res.list
         const total = res.total

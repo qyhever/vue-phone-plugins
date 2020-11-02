@@ -169,6 +169,14 @@ export default new Router({
       meta: {
         title: 'forbid-long-press'
       }
+    },
+    {
+      name: 'virtualScroll',
+      path: '/virtual-scroll',
+      component: () => import( /* webpackChunkName: "virtual-scroll" */ '@/views/virtual-scroll'),
+      meta: {
+        title: 'virtual-scroll'
+      }
     }
   ]
 })

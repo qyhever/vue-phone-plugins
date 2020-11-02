@@ -50,3 +50,7 @@ export function removeClass(el, cls) {
     el.className = trim(curClass)
   }
 }
+
+export function getScrollTop() {
+  return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+}

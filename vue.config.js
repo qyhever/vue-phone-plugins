@@ -22,19 +22,19 @@ const cdn = {
     js: []
   }
 }
+const PORT = process.env.PORT || 2020
 module.exports = {
   publicPath: '/vue-phone-plugins/',
   outputDir: 'dist',
   assetsDir: 'static',
   devServer: {
-    port: 2020,
+    port: PORT,
     host: '0.0.0.0',
     overlay: {
       warnings: true,
       errors: true
     }
     // proxy: {
-    //   // change xxx-api/login => mock/login
     //   // detail: https://cli.vuejs.org/config/#devserver-proxy
     // }
   },
