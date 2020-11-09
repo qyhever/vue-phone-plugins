@@ -177,6 +177,22 @@ export default new Router({
       meta: {
         title: 'virtual-scroll'
       }
+    },
+    {
+      name: 'at',
+      path: '/at',
+      component: () => import( /* webpackChunkName: "at" */ '@/views/at'),
+      meta: {
+        title: 'at'
+      }
+    },
+    {
+      name: 'selectStaff',
+      path: '/select-staff',
+      component: () => import( /* webpackChunkName: "select-staff" */ '@/views/at/select-staff'),
+      meta: {
+        title: 'select-staff'
+      }
     }
   ]
 })

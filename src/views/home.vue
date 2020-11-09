@@ -35,7 +35,8 @@
           { label: 'area-picker', value: '/area-picker' },
           { label: 'swiper', value: '/swiper' },
           { label: 'charts', value: '/charts' },
-          { label: 'f2chart', value: '/f2chart' }
+          { label: 'f2chart', value: '/f2chart' },
+          { label: 'at', value: '/at' }
         ]
       }
     }
