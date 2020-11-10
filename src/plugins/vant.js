@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Button, Cell, NavBar, Uploader, Field, Row, Search } from 'vant'
+import { Button, Cell, NavBar, Uploader, Field, Row, Search, Loading, Checkbox, CheckboxGroup } from 'vant'
 
 Vue
   .use(Button)
@@ -9,3 +9,6 @@ Vue
   .use(Field)
   .use(Row)
   .use(Search)
+  .use(Loading)
+  .use(Checkbox)
+  .use(CheckboxGroup)
