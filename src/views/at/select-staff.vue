@@ -65,8 +65,6 @@ export default {
     this._handleSearchKeyChange = debounce(this.handleSearchKeyChange, 200)
     return {
       searchKey: '',
-      startIndex: 0,
-      endIndex: 0,
       selectedList: [],
       selectedKeys: [],
       list: [],

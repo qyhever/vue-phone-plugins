@@ -6,7 +6,9 @@
       @confirm="onSelectConfirm"
     >
     </SelectStaff>
-    <van-button type="primary" @click="onSubmit">确定</van-button>
+    <footer class="footer">
+      <van-button type="primary" block @click="onSubmit">确定</van-button>
+    </footer>
   </ComPage>
 </template>
 
@@ -32,8 +34,6 @@ export default {
     return {
       value: '',
       oldVal: '',
-      startIndex: 0,
-      endIndex: 0,
       visible: false
     }
   },
@@ -104,8 +104,8 @@ export default {
       }
     },
     onSubmit() {
-      // this.value.match(/@((\w|[\u4e00-\u9fa5])+(?=\s))/g)
-      console.log(this.$refs.txt.selectionStart)
+      const atList = this.value.match(/@((\w|[\u4e00-\u9fa5])+(?=\s))/g)
+      console.log(atList)
     }
   }
 }
@@ -121,5 +121,10 @@ export default {
     margin: 10px auto 0;
     border: 1px solid #eee;
     border-radius: 4px;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }
 </style>

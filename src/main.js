@@ -2,13 +2,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import VConsole from 'vconsole'
 
 import './assets/icons'
 import './plugins'
 import './assets/styles/index.less'
 // if (process.env.NODE_ENV === 'development') {
-//   new window.VConsole()
+//   new VConsole()
 // }
+new VConsole()
 if (process.env.NODE_ENV !== 'development') {
   console.log(navigator.userAgent)
   console.log(`last delopy: %c${process.env.NOW}`, 'color: #67C23A')
