@@ -5,8 +5,9 @@
       <img class="avatar" v-lazy="item.imgurl" alt="avatar">
       <p>{{item.dissname}}</p>
     </div>
+    <!-- <empty v-show="!tableData.length && !querying" text="暂无数据"></empty> -->
     <div v-show="list.length && isReachBottom" class="scroll-tip">拼命加载中...</div>
-    <div v-show="list.length && isTotalLoaded" class="scroll-tip">已经到底了</div>
+    <div v-show="list.length && isTotalLoaded && currentScrollTop" class="scroll-tip">已经到底了</div>
     <ComBacktop></ComBacktop>
   </ComPage>
 </template>
