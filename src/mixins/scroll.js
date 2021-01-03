@@ -15,7 +15,8 @@ export default {
       isReachBottom: false, // 是否到达触底区域
       lastScrollTop: 0, // 上一次 scrollTop
       isTotalLoaded: false, // 是否加载完全部数据
-      lockScroll: false // 加载中锁定滚动
+      lockScroll: false, // 加载中锁定滚动
+      currentScrollTop: 0 // 用来做 没有更多数据 的显示判断，如果数据不满一屏，显示 没有更多数据 不太好
     }
   },
   
@@ -33,6 +34,7 @@ export default {
 
   methods: {
     onScroll() {
+      this.currentScrollTop = getScrollTop()
       // 全部数据加载完成
       if (this.isTotalLoaded) {
         return
@@ -54,11 +56,15 @@ export default {
         return
       }
       if (currentH >= totalH) {
-        this.isReachBottom = true
-        this.lockScroll = true
-        this.paper.currentPage++
-        this.query(this.paper)
+        this.onReachBottom()
       }
+    },
+    onReachBottom() {
+      console.log('onReachBottom')
+      this.lockScroll = true
+      this.isReachBottom = true
+      this.pager.currentPage += 1
+      this.query(this.pager)
     },
     // 通过总数据条数结束
     endBySize(totalSize) {
@@ -93,6 +99,7 @@ export default {
         // }
       })
     },
+    // 在表单控件变化时调用
     changeQuery() {
       this.isTotalLoaded = false
       this.paper.currentPage = 1
